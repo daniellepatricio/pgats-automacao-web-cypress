@@ -1,0 +1,43 @@
+
+name: BrowserStack - Cypress E2E Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  browserstack-tests:
+    name: Run Cypress Tests on BrowserStack
+    runs-on: ubuntu-latest
+
+    env:
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+
+    steps:
+      # Clonar o repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Configurar Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # Instalar dependências do projeto
+      - name: Install dependencies
+        run: npm ci
+
+      # Verificar se as credenciais estão configuradas
+      - name: Validate BrowserStack credentials
+        shell: bash
+        run: |
+          if [[ -z "$BROWSERSTACK_USERNAME" || -z "$BROWSERSTACK_ACCESS_KEY" ]]; then
+            echo "::error::BrowserStack credentials are missing. Configure GitHub Actions Secrets."
+            exit 1
+          fi
+
+      # Executar os testes Cypress no BrowserStack
+      - name: Run BrowserStack Cypress tests
+        run: npx browserstack-cypress run

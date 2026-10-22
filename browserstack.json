@@ -1,0 +1,33 @@
+
+{
+  "browsers": [
+    {
+      "browser": "chrome",
+      "os": "Windows 11",
+      "versions": [
+        "latest",
+        "latest-1"
+      ]
+    }
+  ],
+  "run_settings": {
+    "cypress_config_file": "cypress.browserstack.config.js",
+    "project_name": "PGATS - Automacao Web",
+    "build_name": "Cypress - Trabalho Final",
+    "parallels": 1,
+    "headless": true,
+    "npm_dependencies": {
+      "cypress": "13.7.3",
+      "browserstack-cypress-cli": "1.37.1",
+      "cypress-mochawesome-reporter": "5.0.0",
+      "cypress-xpath": "2.0.1"
+    }
+  },
+  "connection_settings": {
+    "local": false,
+    "local_identifier": null,
+    "local_mode": null,
+    "local_config_file": null
+  },
+  "disable_usage_reporting": false
+}

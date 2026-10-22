@@ -1,0 +1,53 @@
+
+name: Trabalho Final - Web E2E Tests - Cypress
+
+on:
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    name: Cypress E2E Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Configurar Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      # Verificar versões
+      - name: Check Node.js and npm versions
+        run: |
+          node --version
+          npm --version
+
+      # Instalar dependências
+      - name: Install dependencies
+        run: npm ci
+
+      # Verificar instalação do Cypress
+      - name: Verify Cypress installation
+        run: npx cypress verify
+
+      # Executar testes E2E com Mochawesome
+      - name: Run Cypress E2E tests
+        run: npx cypress run --browser electron
+
+      # Publicar relatórios e evidências
+      - name: Upload Cypress reports and screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-e2e-reports
+          path: |
+            cypress/reports/
+            cypress/screenshots/
+            cypress/videos/
+          if-no-files-found: warn
+          retention-days: 30

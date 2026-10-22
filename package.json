@@ -1,0 +1,26 @@
+{
+  "name": "pgats-automacao-web-trabalho-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome",
+    "test:browserstack": "dotenv -- browserstack-cypress run",
+    "test:browserstack:headed": "dotenv -- browserstack-cypress run --headed"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "browserstack-cypress-cli": "^1.37.1",
+    "cross-env": "^7.0.3",
+    "cypress": "^13.7.3",
+    "cypress-mochawesome-reporter": "^5.0.0",
+    "cypress-xpath": "^2.0.1",
+    "dotenv-cli": "^11.0.0"
+  },
+  "allowScripts": {
+    "cypress@13.7.3": true
+  }
+}

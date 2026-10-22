@@ -1,0 +1,151 @@
+
+# ============================================================
+# PGATS - Automacao de Testes Web com Cypress
+# .gitignore
+# ============================================================
+
+
+# ============================================================
+# 1. CREDENCIAIS E VARIAVEIS DE AMBIENTE
+# ============================================================
+
+# Arquivos com credenciais e configuracoes privadas
+.env
+.env.*
+!.env.example
+
+# Chaves e certificados privados
+*.pem
+*.key
+*.p12
+*.pfx
+
+
+# ============================================================
+# 2. DEPENDENCIAS NODE.JS / NPM
+# ============================================================
+
+# Dependencias instaladas
+node_modules/
+
+# Cache do npm
+.npm/
+
+# Logs do npm
+npm-debug.log*
+npm-error.log*
+npm_install_debug*
+npm_install_debug.txt
+
+# Outros logs de gerenciadores de pacotes
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# ============================================================
+# 3. CYPRESS - ARQUIVOS GERADOS
+# ============================================================
+
+# Capturas de tela
+cypress/screenshots/
+
+# Videos das execucoes
+cypress/videos/
+
+# Relatorios gerados pelo Cypress
+cypress/reports/
+
+# Downloads realizados durante os testes
+cypress/downloads/
+
+# Cache do Cypress
+.cache/Cypress/
+
+
+# ============================================================
+# 4. MOCHAWESOME - RELATORIOS HTML
+# ============================================================
+
+# Relatorios HTML e JSON
+mochawesome-report/
+mochawesome-merge/
+
+# Relatorios gerados na pasta Cypress
+cypress/reports/
+
+# Arquivos de relatorios gerados
+mochawesome*.html
+mochawesome*.json
+
+
+# ============================================================
+# 5. BROWSERSTACK - ARQUIVOS TEMPORARIOS
+# ============================================================
+
+# Pacotes temporarios utilizados pelo BrowserStack
+tmpBstackPackages/
+
+# Logs e resultados de execucao
+log/
+results/
+
+# Logs especificos do BrowserStack
+browserstack*.log
+
+
+# ============================================================
+# 6. ARQUIVOS TEMPORARIOS E DE DEBUG
+# ============================================================
+
+# Arquivos de log
+*.log
+
+# Arquivos temporarios
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+
+# ============================================================
+# 7. EDITORES E IDEs
+# ============================================================
+
+# Configuracoes locais do VS Code
+.vscode/
+
+# Configuracoes do IntelliJ / WebStorm
+.idea/
+
+
+# ============================================================
+# 8. COBERTURA DE CODIGO
+# ============================================================
+
+coverage/
+.nyc_output/
+
+
+# ============================================================
+# 9. ARQUIVOS DE BUILD E CACHE
+# ============================================================
+
+dist/
+build/
+.cache/
+tmp/
+temp/
+
+
+# ============================================================
+# 10. ARQUIVOS QUE DEVEM PERMANECER NO GITHUB
+# ============================================================
+
+# Manter o exemplo de configuracao de ambiente
+!.env.example
